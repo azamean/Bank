@@ -91,5 +91,22 @@ public class DBHandler extends SQLiteOpenHelper {
         return dbString;
     }
 
+    public int updateUser(User user) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, user.get_name());
+        values.put(COLUMN_ADDRESS1, user.get_address1());
+        values.put(COLUMN_ADDRESS2, user.get_address2());
+        values.put(COLUMN_ACCNO, user.get_accNo());
+        values.put(COLUMN_PIN, user.get_PIN());
+        values.put(COLUMN_BALANCE, user.get_currentbalance());
+
+        // updating row
+        return db.update(TABLE_USER, values, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(user.get_id())});
+
+    }
+
 
 }
