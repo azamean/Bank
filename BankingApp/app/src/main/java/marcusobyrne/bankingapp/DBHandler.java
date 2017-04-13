@@ -54,6 +54,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    //Delete a user from the database
+    public void deleteUser(String name){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_USER + " WHERE " + COLUMN_NAME + "=\"" + name + "\";");
+    }
+
     //Display DB as string
     public String databaseToString(){
         String dbString = "";

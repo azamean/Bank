@@ -2,7 +2,7 @@ package marcusobyrne.bankingapp;
 
 
 
-public class Personal {
+public class User {
 
     private int _id;
     private String _name;
@@ -10,11 +10,11 @@ public class Personal {
     private double _currentbalance;
 
 
-    public Personal(String _name) {
+    public User(String _name) {
         this._name = _name;
     }
 
-    public Personal(int _PIN) {
+    public User(int _PIN) {
         this._PIN = _PIN;
     }
 
