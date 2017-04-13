@@ -6,10 +6,16 @@ public class Personal {
 
     private int _id;
     private String _name;
+    private int _PIN;
     private double _currentbalance;
+
 
     public Personal(String _name) {
         this._name = _name;
+    }
+
+    public Personal(int _PIN) {
+        this._PIN = _PIN;
     }
 
     public void set_id(int _id) {
@@ -18,6 +24,10 @@ public class Personal {
 
     public void set_name(String _name) {
         this._name = _name;
+    }
+
+    public void set_PIN(int _PIN) {
+        this._PIN = _PIN;
     }
 
     public void set_currentbalance(double _currentbalance) {
@@ -30,6 +40,10 @@ public class Personal {
 
     public String get_name() {
         return _name;
+    }
+
+    public int get_PIN() {
+        return _PIN;
     }
 
     public double get_currentbalance() {
