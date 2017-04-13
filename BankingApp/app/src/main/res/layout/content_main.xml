@@ -11,43 +11,45 @@
     <Button
         android:id="@+id/createAccount"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="173dp"
-        android:layout_height="49dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#bf2522"
         android:onClick="createAccountClicked"
         android:text="Create Account"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="306dp"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="300dp"
         tools:text="Create User" />
 
     <Button
         android:id="@+id/loginButton"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="168dp"
-        android:layout_height="54dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#bf2522"
         android:onClick="loginClicked"
         android:text="Login"
         android:textColorLink="@color/colorPrimary"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="151dp"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="154dp"
         tools:style="@style/Widget.AppCompat.Button" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewWelcome"
+        android:layout_width="295dp"
+        android:layout_height="40dp"
         android:text="Welcome to Marcus' Bank!"
         android:textColor="#000000"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="48dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OR"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="236dp" />
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="247dp" />
 </android.support.constraint.ConstraintLayout>
