@@ -22,7 +22,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    
+
+        String query = "CREATE TABLE " + TABLE_USER + "(" +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
+                COLUMN_NAME + " TEXT " +
+                COLUMN_BALANCE + " INTEGER " +
+                ");";
+
+        db.execSQL(query);
+
     }
 
     @Override
