@@ -54,5 +54,27 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    //Display DB as string
+    public String databaseToString(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE 1";
+
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+
+        while(!c.isAfterLast()){
+
+            if(c.getString(c.getColumnIndex("name")) != null){
+                dbString += c.getString(c.getColumnIndex("name"));
+                dbString += "\n";
+            }
+        }
+
+        db.close();
+        return dbString;
+    }
+
 
 }
