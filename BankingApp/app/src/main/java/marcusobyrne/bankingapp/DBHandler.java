@@ -9,10 +9,11 @@ import android.content.ContentValues;
 public class DBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "personal.db";
-    public static final String TABLE_USER = "personal";
+    private static final String DATABASE_NAME = "user.db";
+    public static final String TABLE_USER = "user";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_PIN = "PIN";
     public static final String COLUMN_BALANCE = "currentbalance";
 
 
@@ -26,6 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_USER + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
                 COLUMN_NAME + " TEXT " +
+                COLUMN_PIN + " INTEGER " +
                 COLUMN_BALANCE + " INTEGER " +
                 ");";
 
@@ -37,6 +39,20 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
+    }
+
+    //Add new row
+    public void addUser(User user){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, user.get_name());
+        values.put(COLUMN_PIN, user.get_PIN());
+        values.put(COLUMN_BALANCE, user.get_currentbalance());
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_USER, null, values);
+        db.close();
 
     }
+
+
 }
