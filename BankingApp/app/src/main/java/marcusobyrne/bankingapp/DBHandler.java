@@ -12,8 +12,21 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "personal.db";
     public static final String TABLE_USER = "personal";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_NAME = "_name";
-    public static final String COLUMN_BALANCE = "_currentbalance";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_BALANCE = "currentbalance";
 
 
+    public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+    
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
 }
