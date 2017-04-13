@@ -6,6 +6,9 @@ public class User {
 
     private int _id;
     private String _name;
+    private String _address1;
+    private String _address2;
+    private int _accNo;
     private int _PIN;
     private double _currentbalance;
 
@@ -18,12 +21,26 @@ public class User {
         this._PIN = _PIN;
     }
 
+
+
     public void set_id(int _id) {
         this._id = _id;
     }
 
     public void set_name(String _name) {
         this._name = _name;
+    }
+
+    public void set_address1(String _address1) {
+        this._address1 = _address1;
+    }
+
+    public void set_address2(String _address2) {
+        this._address2 = _address2;
+    }
+
+    public void set_accNo(int _accNo) {
+        this._accNo = _accNo;
     }
 
     public void set_PIN(int _PIN) {
@@ -48,5 +65,17 @@ public class User {
 
     public double get_currentbalance() {
         return _currentbalance;
+    }
+
+    public String get_address1() {
+        return _address1;
+    }
+
+    public String get_address2() {
+        return _address2;
+    }
+
+    public int get_accNo() {
+        return _accNo;
     }
 }
