@@ -33,7 +33,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 COLUMN_ADDRESS1 + " TEXT, " +
                 COLUMN_ADDRESS2 + " TEXT, " +
                 COLUMN_ACCNO + " INTEGER, " +
-                COLUMN_PIN + " INTEGER, " +
+                COLUMN_PIN + " INTEGER UNIQUE, " +
                 COLUMN_BALANCE + " INTEGER " +
                 ");";
 
@@ -61,6 +61,32 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USER, null, values);
         db.close();
 
+    }
+
+    public void searchPIN(int PIN){
+
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_PIN + " LIKE " + PIN + ";";
+
+        Cursor cursor = db.rawQuery(query, null);
+        String a, b, c, d, e, f;
+
+        if(cursor.moveToFirst()){
+            do{
+
+                e = cursor.getString(4);
+                if(e.equals(PIN)){
+
+                    a = cursor.getString(0);
+                    b = cursor.getString(1);
+                    c = cursor.getString(2);
+                    d = cursor.getString(3);
+                    f = cursor.getString(5);
+                    break;
+                }
+
+            }while(cursor.moveToNext());
+        }
     }
 
     //Delete a user from the database

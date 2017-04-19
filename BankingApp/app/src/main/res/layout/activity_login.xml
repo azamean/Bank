@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="35dp" />
 
     <EditText
-        android:id="@+id/enterPIN"
+        android:id="@+id/enteredPIN"
         android:layout_width="316dp"
         android:layout_height="71dp"
         android:ems="10"
