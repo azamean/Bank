@@ -27,6 +27,8 @@ public class newUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
+        setTitle("");
+
         Name = (EditText) findViewById(R.id.Name);
         Address1 = (EditText) findViewById(R.id.Address1);
         Address2 = (EditText) findViewById(R.id.Address2);

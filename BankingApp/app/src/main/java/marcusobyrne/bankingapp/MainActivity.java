@@ -42,16 +42,13 @@ public class MainActivity extends AppCompatActivity {
         Intent newUser = new Intent(this, newUser.class);
         startActivity(newUser);
 
-        /*         Was used for testing button clicks
-        textView = (TextView) (findViewById(R.id.textViewWelcome));
-        if(num == 0){
-            textView.setTextColor(Color.parseColor("#FF0000"));
-            num = 1;
-        }else{
-            textView.setTextColor(Color.parseColor("#0000FF"));
-            num = 0;
-        }
-        */
+    }
+
+    public void loginClicked(View view){
+
+        Intent login = new Intent(this, Login.class);
+        startActivity(login);
+
     }
     /*
     @Override
