@@ -6,4 +6,77 @@
     android:layout_height="match_parent"
     tools:context="marcusobyrne.bankingapp.newUser">
 
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="43dp"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textViewAddress1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Address Line 1:"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewName"
+        android:layout_alignLeft="@+id/textViewName"
+        android:layout_alignStart="@+id/textViewName" />
+
+    <TextView
+        android:id="@+id/textViewAddress2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="Address Line 2:"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewAddress1"
+        android:layout_alignLeft="@+id/textViewAddress1"
+        android:layout_alignStart="@+id/textViewAddress1" />
+
+    <TextView
+        android:id="@+id/textViewAccNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="Account Number:"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewAddress2"
+        android:layout_alignLeft="@+id/textViewAddress2"
+        android:layout_alignStart="@+id/textViewAddress2" />
+
+    <TextView
+        android:id="@+id/textViewPIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="PIN:"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewAccNo"
+        android:layout_alignLeft="@+id/textViewAccNo"
+        android:layout_alignStart="@+id/textViewAccNo" />
+
+    <TextView
+        android:id="@+id/textViewBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Current Balance:"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewPIN"
+        android:layout_alignLeft="@+id/textViewPIN"
+        android:layout_alignStart="@+id/textViewPIN" />
 </android.widget.RelativeLayout>
