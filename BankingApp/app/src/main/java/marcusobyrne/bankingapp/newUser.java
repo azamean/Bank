@@ -1,5 +1,7 @@
 package marcusobyrne.bankingapp;
 
+import android.content.Intent;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +35,20 @@ public class newUser extends AppCompatActivity {
     }
 
     public void saveUser(View view){
+        User user = new User(Name.getText().toString(),
+                Address1.getText().toString(),
+                Address2.getText().toString(),
+                Integer.valueOf(AccountNumber.getText().toString()),
+                Integer.valueOf(PINno.getText().toString()),
+                Double.valueOf(Balance.getText().toString()));
 
+        dbHandler.addUser(user);
+
+        Intent userCreated = new Intent(this, MainActivity.class);
+        startActivity(userCreated);
+    }
+
+    public void printDatabase(){
+        String dbString = dbHandler.databaseToString();
     }
 }

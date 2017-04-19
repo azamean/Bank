@@ -13,8 +13,13 @@ public class User {
     private double _currentbalance;
 
 
-    public User(String _name) {
+    public User(String _name, String _address1, String _address2, int _accNo, int _PIN, double _currentbalance) {
         this._name = _name;
+        this._address1 = _address1;
+        this._address2 = _address2;
+        this._accNo = _accNo;
+        this._PIN = _PIN;
+        this._currentbalance = _currentbalance;
     }
 
     public User(int _PIN) {
