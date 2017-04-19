@@ -1,5 +1,7 @@
 package marcusobyrne.bankingapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
@@ -44,11 +46,24 @@ public class newUser extends AppCompatActivity {
 
         dbHandler.addUser(user);
 
-        Intent userCreated = new Intent(this, MainActivity.class);
-        startActivity(userCreated);
+        final Intent userCreated = new Intent(this, MainActivity.class);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(newUser.this).create();
+        alertDialog.setTitle("User Created");
+        alertDialog.setMessage("User data has now been saved, please select 'Login' to accesss your account.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        startActivity(userCreated);
+                    }
+                });
+        alertDialog.show();
+
     }
 
     public void printDatabase(){
         String dbString = dbHandler.databaseToString();
+        //textView.setText(dbString);
     }
 }
