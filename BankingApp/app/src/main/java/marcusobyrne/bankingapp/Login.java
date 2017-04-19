@@ -13,7 +13,7 @@ public class Login extends AppCompatActivity {
         setTitle("");
     }
 
-    public void loginClick(View view){
+    public void loginClicked(View view){
 
     }
 }
