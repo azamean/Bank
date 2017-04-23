@@ -19,10 +19,11 @@ public class MainMenu extends AppCompatActivity {
 
     public void viewAccount(View view){
 
-        Intent viewAcc = new Intent(this, AccountInformation.class);
+        Intent viewAcc = new Intent(MainMenu.this, AccountInformation.class);
         startActivity(viewAcc);
 
     }
+
     public void logoutClicked(View view){
         Intent logout = new Intent(this, MainActivity.class);
 

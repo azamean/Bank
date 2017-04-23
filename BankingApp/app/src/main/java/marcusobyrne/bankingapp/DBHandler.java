@@ -21,6 +21,11 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_PIN = "PIN";
     public static final String COLUMN_BALANCE = "currentbalance";
 
+    public static final String TABLE_TRANSACTIONS = "statement.db";
+    public static final String COLUMN_TID = "_tid";
+    public static final String COLUMN_DESCRIPTION = "description";
+    public static final String COLUMN_AMOUNT = "amount";
+
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -40,6 +45,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 ");";
 
         db.execSQL(query);
+
+
 
     }
 

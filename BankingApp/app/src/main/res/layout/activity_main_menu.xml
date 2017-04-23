@@ -7,19 +7,6 @@
     tools:context="marcusobyrne.bankingapp.MainMenu">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp"
-        android:background="#bf2522"
-        android:onClick="viewAccount"
-        android:text="Account Information"
-        android:textAlignment="center"
-        android:textColorLink="@android:color/black"
-        android:textSize="18sp" />
-
-    <Button
         android:id="@+id/buttonLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,4 +17,25 @@
         android:onClick="logoutClicked"
         android:text="Logout"
         android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:background="#bf2522"
+        android:onClick="viewAccount"
+        android:text="Account Information" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#bf2522"
+        android:text="Transactions"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 </android.widget.RelativeLayout>
