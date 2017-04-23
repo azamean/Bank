@@ -30,6 +30,12 @@ public class MainMenu extends AppCompatActivity {
         startActivity(logout);
     }
 
+    public void addTransaction(View view){
+        Intent addTransaction = new Intent(this, AddTransaction.class);
+        startActivity(addTransaction);
+
+    }
+
 
 
 }
