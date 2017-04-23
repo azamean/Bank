@@ -154,7 +154,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 selectionArgs,
                 null,
                 null,
-                null);                      
+                null);
 
         int cursorCount = cursor.getCount();
 
