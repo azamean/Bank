@@ -46,6 +46,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(query);
 
+        String query2 = "CREATE TABLE " + TABLE_TRANSACTIONS + "(" +
+                COLUMN_TID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_DESCRIPTION + " TEXT, " +
+                COLUMN_AMOUNT + " INTEGER);";
+
+        db.execSQL(query2);
 
 
     }
@@ -69,7 +75,15 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USER, null, values);
         db.close();
+    }
+    public void addTransaction(Transaction transaction){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_DESCRIPTION, transaction.get_description());
+        values.put(COLUMN_AMOUNT, transaction.get_balance());
 
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_TRANSACTIONS, null, values);
+        db.close();
     }
 
     public boolean getUser(int PIN){
@@ -111,15 +125,16 @@ public class DBHandler extends SQLiteOpenHelper {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
 
-        String query = "SELECT * FROM " + TABLE_USER + " WHERE 1";
+        String query = "SELECT * FROM " + TABLE_TRANSACTIONS + " WHERE 1";
 
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
         while(!c.isAfterLast()){
 
-            if(c.getString(c.getColumnIndex("name")) != null){
-                dbString += c.getString(c.getColumnIndex("name"));
+            if(c.getString(c.getColumnIndex("description")) != null){
+                dbString += c.getString(c.getColumnIndex("description"));
+                dbString += c.getString(c.getColumnIndex("balance"));
                 dbString += "\n";
             }
         }
