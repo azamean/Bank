@@ -71,6 +71,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery(query, null);
 
+        cursor.moveToFirst();
+
         if(cursor.getCount() > 0){
             return true;
         }
