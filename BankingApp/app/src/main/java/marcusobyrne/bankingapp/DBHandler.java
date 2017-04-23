@@ -202,6 +202,25 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    public void updateBalance(double amount){
+        SQLiteDatabase db = getWritableDatabase();
+
+        Double balance = DataHolder.getBalance();
+        int PIN = DataHolder.getPIN();
+
+        balance = balance - amount;
+
+        DataHolder.setBalance(balance);
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_BALANCE, balance);
+
+
+        db.update(TABLE_USER, values, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(PIN)});
+
+    }
+
 
 
 }

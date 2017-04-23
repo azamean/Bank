@@ -38,6 +38,7 @@ public class newTrans extends AppCompatActivity {
                 Double.valueOf(Amount.getText().toString()));
 
         dbHandler.saveTransaction(transaction);
+        dbHandler.updateBalance(Double.valueOf(Amount.getText().toString()));
 
         Intent transactionAdded = new Intent(this, MainMenu.class);
         startActivity(transactionAdded);
