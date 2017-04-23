@@ -26,7 +26,8 @@
         </activity>
         <activity android:name=".newUser" />
         <activity android:name=".Login" />
-        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".MainMenu" />
+        <activity android:name=".AccountInformation"></activity>
     </application>
 
 </manifest>
