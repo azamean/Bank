@@ -139,7 +139,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // array of columns to fetch
         String[] columns = {
-                COLUMN_ID
+                COLUMN_ID,
+                COLUMN_NAME,
+                COLUMN_ADDRESS1,
+                COLUMN_ADDRESS2,
+                COLUMN_ACCNO,
+                COLUMN_PIN,
+                COLUMN_BALANCE
         };
         SQLiteDatabase db = this.getReadableDatabase();
         // selection criteria
@@ -165,6 +171,42 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 
         return false;
+    }
+    public String[] getData(String PIN) {
+
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_ID,
+                COLUMN_NAME,
+                COLUMN_ADDRESS1,
+                COLUMN_ADDRESS2,
+                COLUMN_ACCNO,
+                COLUMN_PIN,
+                COLUMN_BALANCE
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = COLUMN_PIN + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {PIN};
+
+        Cursor cursor = db.query(TABLE_USER,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return columns;
+        }
+        return null;
     }
 
 

@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context="marcusobyrne.bankingapp.MainMenu">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="56dp"
+        android:background="#bf2522"
+        android:onClick="viewAccount"
+        android:text="Account Information"
+        android:textAlignment="center"
+        android:textColorLink="@android:color/black"
+        android:textSize="18sp" />
 </android.widget.RelativeLayout>
