@@ -26,13 +26,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void logoutClicked(){
-        logout();
-    }
-
-    public void logout(){
         session.setLoggedin(false);
-        finish();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent loggedOut = new Intent(this, MainActivity.class);
+        startActivity(loggedOut);
     }
 
 }

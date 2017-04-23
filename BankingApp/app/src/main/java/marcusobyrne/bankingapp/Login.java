@@ -26,7 +26,6 @@ public class Login extends AppCompatActivity {
 
         if(session.loggedin()){
             startActivity(new Intent(this, MainMenu.class));
-            finish();
         }
 
 

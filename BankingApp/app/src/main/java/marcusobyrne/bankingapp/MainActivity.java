@@ -20,7 +20,7 @@ import android.graphics.Color;
 public class MainActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
-    private Session session;
+
     TextView textView;
     Integer num = 0;
 
@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setTitle("");
 
-        if(!session.loggedin()){
-            logout();
-        }
 
     }
 
@@ -55,8 +52,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void logout(){
-        session.setLoggedin(false);
-        finish();
-    }
 }
