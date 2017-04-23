@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "user.db";
     public static final String TABLE_USER = "user";
     public static final String COLUMN_ID = "_id";

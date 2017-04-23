@@ -22,34 +22,20 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
         android:background="#bf2522"
         android:onClick="viewAccount"
-        android:text="Account Information"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="Account Information" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         android:background="#bf2522"
-        android:onClick="addTransaction"
-        android:text="Add Transaction"
+        android:text="Transactions"
         android:layout_below="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:background="#bf2522"
-        android:onClick="viewTransactions"
-        android:text="View Transactions" />
+        android:layout_centerHorizontal="true" />
 </android.widget.RelativeLayout>
