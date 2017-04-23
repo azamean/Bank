@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
+import android.provider.ContactsContract;
 import android.widget.EditText;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -74,6 +75,15 @@ public class DBHandler extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         if(cursor.getCount() > 0){
+
+            DataHolder.setID(Integer.valueOf(cursor.getString(0)));
+            DataHolder.setName(cursor.getString(1));
+            DataHolder.setAddress1(cursor.getString(2));
+            DataHolder.setAddress2(cursor.getString(3));
+            DataHolder.setAccNo(Integer.valueOf(cursor.getString(4)));
+            DataHolder.setPIN(Integer.valueOf(cursor.getString(5)));
+            DataHolder.setBalance(Double.valueOf(cursor.getString(6)));
+
             return true;
         }
         cursor.close();

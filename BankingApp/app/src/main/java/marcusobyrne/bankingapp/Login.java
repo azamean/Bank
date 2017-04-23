@@ -13,7 +13,6 @@ import android.widget.EditText;
 public class Login extends AppCompatActivity {
 
     private DBHandler dbHandler;
-    private Session session;
     EditText PIN;
 
 
@@ -22,11 +21,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTitle("");
-        session = new Session(this);
-
-        if(session.loggedin()){
-            startActivity(new Intent(this, MainMenu.class));
-        }
 
 
 
@@ -38,13 +32,9 @@ public class Login extends AppCompatActivity {
         dbHandler = new DBHandler(this, null, null, 1);
 
         if(dbHandler.getUser(Integer.valueOf(PIN.getText().toString()))){
-            session.setLoggedin(true);
 
             Intent loggedIn = new Intent(this, MainMenu.class);
             startActivity(loggedIn);
-
-
-
 
         }else{
 

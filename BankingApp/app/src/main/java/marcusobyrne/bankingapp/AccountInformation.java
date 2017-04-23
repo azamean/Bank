@@ -1,5 +1,6 @@
 package marcusobyrne.bankingapp;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -19,6 +20,13 @@ public class AccountInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_information);
         setTitle("");
+
+        textName.setText(DataHolder.getName());
+        textAddress1.setText(DataHolder.getAddress1());
+        textAddress2.setText(DataHolder.getAddress2());
+        textAccNo.setText(DataHolder.getAccNo());
+        textPIN.setText(DataHolder.getPIN());
+        textBalance.setText((int) DataHolder.getBalance());
 
 
     }
