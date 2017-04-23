@@ -77,10 +77,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USER, null, values);
         db.close();
     }
-    public void addTransaction(Transaction transaction){
+    public void saveTransaction(Transaction transaction){
         ContentValues values = new ContentValues();
         values.put(COLUMN_DESCRIPTION, transaction.get_description());
-        values.put(COLUMN_AMOUNT, transaction.get_balance());
+        values.put(COLUMN_AMOUNT, transaction.get_amount());
 
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_TRANSACTIONS, null, values);
@@ -135,7 +135,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
             if(c.getString(c.getColumnIndex("description")) != null){
                 dbString += c.getString(c.getColumnIndex("description"));
-                dbString += c.getString(c.getColumnIndex("balance"));
+                dbString += c.getString(c.getColumnIndex("amount")).toString();
                 dbString += "\n";
             }
         }

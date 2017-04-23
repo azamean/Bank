@@ -27,7 +27,9 @@
         <activity android:name=".newUser" />
         <activity android:name=".Login" />
         <activity android:name=".MainMenu" />
-        <activity android:name=".AccountInformation"></activity>
+        <activity android:name=".AccountInformation" />
+        <activity android:name=".newTrans" />
+        <activity android:name=".viewTransactions"></activity>
     </application>
 
 </manifest>

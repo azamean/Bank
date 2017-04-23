@@ -8,8 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class AddTransaction extends AppCompatActivity {
-
+public class newTrans extends AppCompatActivity {
 
     DBHandler dbHandler;
     EditText Description;
@@ -18,7 +17,8 @@ public class AddTransaction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_transaction);
+        setContentView(R.layout.activity_new_trans);
+
         setTitle("");
 
         Description = (EditText) findViewById(R.id.editTextDecription);
@@ -26,13 +26,21 @@ public class AddTransaction extends AppCompatActivity {
 
         dbHandler = new DBHandler(this, null, null, 1);
 
+
+
+
     }
 
-    public void addTransaction(){
-            Transaction transaction = new Transaction(Description.getText().toString(),
-                    Double.valueOf(Amount.getText().toString()));
 
-            dbHandler.addTransaction(transaction);
+
+    public void saveTransaction(View view){
+        Transaction transaction = new Transaction(Description.getText().toString(),
+                Double.valueOf(Amount.getText().toString()));
+
+        dbHandler.saveTransaction(transaction);
+
+        Intent transactionAdded = new Intent(this, MainMenu.class);
+        startActivity(transactionAdded);
 
         /*
             final Intent transactionAdded = new Intent(this, MainMenu.class);
@@ -49,6 +57,6 @@ public class AddTransaction extends AppCompatActivity {
                     });
             alertDialog.show();
 */
-        
+
     }
 }
