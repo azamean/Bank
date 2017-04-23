@@ -14,26 +14,12 @@ public class AccountInformation extends AppCompatActivity {
     TextView textBalance = (TextView) findViewById(R.id.textViewBalance);
 
 
-    Bundle bundle = getIntent().getExtras();
-    int ID = bundle.getInt("ID");
-    String name = bundle.getString("name");
-    String addressLine1 = bundle.getString("addressLine1");
-    String addressLine2 = bundle.getString("addressLine2");
-    int accNo = bundle.getInt("accNo");
-    int PIN = bundle.getInt("PIN");
-    double balance = bundle.getDouble("balance");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_information);
         setTitle("");
 
-        textName.setText(name);
-        textAddress1.setText(addressLine1);
-        textAddress2.setText(addressLine2);
-        textAccNo.setText(accNo);
-        textPIN.setText(PIN);
-        textBalance.setText((int) balance);
+
     }
 }

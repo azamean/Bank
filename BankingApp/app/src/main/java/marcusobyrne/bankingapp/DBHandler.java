@@ -64,30 +64,21 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public void searchPIN(int PIN){
+    public boolean getUser(int PIN){
 
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_PIN + " LIKE " + PIN + ";";
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_PIN + " = " + PIN + ";";
 
         Cursor cursor = db.rawQuery(query, null);
-        String a, b, c, d, e, f;
 
-        if(cursor.moveToFirst()){
-            do{
-
-                e = cursor.getString(4);
-                if(e.equals(PIN)){
-
-                    a = cursor.getString(0);
-                    b = cursor.getString(1);
-                    c = cursor.getString(2);
-                    d = cursor.getString(3);
-                    f = cursor.getString(5);
-                    break;
-                }
-
-            }while(cursor.moveToNext());
+        if(cursor.getCount() > 0){
+            return true;
         }
+        cursor.close();
+        db.close();
+
+        return false;
+
     }
 
     //Delete a user from the database
@@ -133,6 +124,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.update(TABLE_USER, values, COLUMN_ID + " = ?",
                 new String[]{String.valueOf(user.get_id())});
 
+
     }
 
     public boolean checkUser(String PIN) {
@@ -171,43 +163,9 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 
         return false;
+
     }
-    public String[] getData(String PIN) {
 
-        // array of columns to fetch
-        String[] columns = {
-                COLUMN_ID,
-                COLUMN_NAME,
-                COLUMN_ADDRESS1,
-                COLUMN_ADDRESS2,
-                COLUMN_ACCNO,
-                COLUMN_PIN,
-                COLUMN_BALANCE
-        };
-        SQLiteDatabase db = this.getReadableDatabase();
-        // selection criteria
-        String selection = COLUMN_PIN + " = ?";
-
-        // selection arguments
-        String[] selectionArgs = {PIN};
-
-        Cursor cursor = db.query(TABLE_USER,
-                columns,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-
-        int cursorCount = cursor.getCount();
-
-        cursor.close();
-        db.close();
-        if (cursorCount > 0) {
-            return columns;
-        }
-        return null;
-    }
 
 
 }
