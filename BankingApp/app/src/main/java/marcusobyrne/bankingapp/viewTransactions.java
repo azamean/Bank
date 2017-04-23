@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class viewTransactions extends AppCompatActivity {
 
     @Override
@@ -16,8 +19,15 @@ public class viewTransactions extends AppCompatActivity {
         TextView transactions = (TextView) findViewById(R.id.textViewTransactions);
         DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
-        transactions.setText(dbHandler.databaseToString());
+        List<String> list = new ArrayList<String>();
+        list = dbHandler.databaseToString();
 
+        StringBuilder builder = new StringBuilder();
+        for (String details : list) {
+            builder.append(details + "\n");
+        }
+
+        transactions.setText(builder.toString());
     }
 
 

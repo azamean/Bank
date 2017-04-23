@@ -64,8 +64,5 @@ public class newUser extends AppCompatActivity {
 
     }
 
-    public void printDatabase(){
-        String dbString = dbHandler.databaseToString();
-        //textView.setText(dbString);
-    }
+
 }

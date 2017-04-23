@@ -8,6 +8,9 @@ import android.content.ContentValues;
 import android.provider.ContactsContract;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -122,26 +125,24 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Display DB as string
-    public String databaseToString(){
-        String dbString = "";
+    public List<String> databaseToString(){
+        List<String> list = new ArrayList<String>();
         SQLiteDatabase db = getWritableDatabase();
 
-        String query = "SELECT * FROM " + TABLE_TRANSACTIONS + " WHERE 1";
+        String query = "SELECT * FROM " + TABLE_TRANSACTIONS + ";";
 
         Cursor c = db.rawQuery(query, null);
-        c.moveToFirst();
+        if(c.moveToFirst()){
+            do{
 
-        while(!c.isAfterLast()){
+                list.add(c.getString(1));
+                list.add(String.valueOf(c.getString(2)));
 
-            if(c.getString(c.getColumnIndex("description")) != null){
-                dbString += c.getString(c.getColumnIndex("description"));
-                dbString += c.getString(c.getColumnIndex("amount")).toString();
-                dbString += "\n";
-            }
+            }while (c.moveToNext());
         }
 
         db.close();
-        return dbString;
+        return list;
     }
 
     public int updateUser(User user) {

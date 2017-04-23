@@ -37,6 +37,8 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void viewTransactionClicked(View view){
+        Intent viewTrans = new Intent(MainMenu.this, viewTransactions.class);
+        startActivity(viewTrans);
 
     }
 
