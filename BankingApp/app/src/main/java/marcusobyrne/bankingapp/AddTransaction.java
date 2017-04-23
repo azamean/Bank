@@ -34,6 +34,7 @@ public class AddTransaction extends AppCompatActivity {
 
             dbHandler.addTransaction(transaction);
 
+        /*
             final Intent transactionAdded = new Intent(this, MainMenu.class);
 
             AlertDialog alertDialog = new AlertDialog.Builder(AddTransaction.this).create();
@@ -47,7 +48,7 @@ public class AddTransaction extends AppCompatActivity {
                         }
                     });
             alertDialog.show();
-
+*/
         
     }
 }

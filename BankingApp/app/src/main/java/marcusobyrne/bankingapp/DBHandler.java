@@ -21,7 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_PIN = "PIN";
     public static final String COLUMN_BALANCE = "currentbalance";
 
-    public static final String TABLE_TRANSACTIONS = "statement.db";
+    public static final String TABLE_TRANSACTIONS = "transactions";
     public static final String COLUMN_TID = "_tid";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_AMOUNT = "amount";
@@ -58,7 +58,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER );
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRANSACTIONS);
         onCreate(db);
     }
 
