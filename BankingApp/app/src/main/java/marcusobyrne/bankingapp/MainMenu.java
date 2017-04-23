@@ -7,12 +7,14 @@ import android.view.View;
 
 public class MainMenu extends AppCompatActivity {
 
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         setTitle("");
+        session = new Session(this);
 
     }
 
@@ -22,4 +24,15 @@ public class MainMenu extends AppCompatActivity {
         startActivity(viewAcc);
 
     }
+
+    public void logoutClicked(){
+        logout();
+    }
+
+    public void logout(){
+        session.setLoggedin(false);
+        finish();
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
 }

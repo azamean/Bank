@@ -10,8 +10,6 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="56dp"
         android:background="#bf2522"
@@ -20,4 +18,16 @@
         android:textAlignment="center"
         android:textColorLink="@android:color/black"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:background="#bf2522"
+        android:onClick="logoutClicked"
+        android:text="Logout"
+        android:textAlignment="center" />
 </android.widget.RelativeLayout>
