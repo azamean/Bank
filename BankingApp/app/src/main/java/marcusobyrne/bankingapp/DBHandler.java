@@ -21,7 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_PIN = "PIN";
     public static final String COLUMN_BALANCE = "currentbalance";
 
-    public static final String TABLE_TRANSACTIONS = "transaction";
+    public static final String TABLE_TRANSACTIONS = "statement.db";
     public static final String COLUMN_TID = "_tid";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_AMOUNT = "amount";
@@ -49,8 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String query2 = "CREATE TABLE " + TABLE_TRANSACTIONS + "(" +
                 COLUMN_TID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_DESCRIPTION + " TEXT, " +
-                COLUMN_AMOUNT + " INTEGER " +
-            ");";
+                COLUMN_AMOUNT + " INTEGER);";
 
         db.execSQL(query2);
 
@@ -60,7 +59,6 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER + ";");
-        db.execSQL("DROP TABLE IS EXISTS " + TABLE_TRANSACTIONS + ";");
         onCreate(db);
     }
 
@@ -78,11 +76,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USER, null, values);
         db.close();
     }
-
     public void addTransaction(Transaction transaction){
         ContentValues values = new ContentValues();
         values.put(COLUMN_DESCRIPTION, transaction.get_description());
-        values.put(COLUMN_AMOUNT, transaction.get_amount());
+        values.put(COLUMN_AMOUNT, transaction.get_balance());
 
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_TRANSACTIONS, null, values);

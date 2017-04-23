@@ -34,8 +34,8 @@ public class AddTransaction extends AppCompatActivity {
 
             dbHandler.addTransaction(transaction);
 
+            final Intent transactionAdded = new Intent(this, MainMenu.class);
 
-/*
             AlertDialog alertDialog = new AlertDialog.Builder(AddTransaction.this).create();
             alertDialog.setTitle("Success");
             alertDialog.setMessage("Transaction has been added successfully");
@@ -43,12 +43,11 @@ public class AddTransaction extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
-                            Intent transactionAdded = new Intent(this, MainMenu.class);
                             startActivity(transactionAdded);
                         }
                     });
             alertDialog.show();
-*/
 
+        
     }
 }

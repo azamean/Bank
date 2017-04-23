@@ -8,11 +8,11 @@ public class Transaction {
 
     private int _id;
     private String _description;
-    private double _amount;
+    private double _balance;
 
-    public Transaction(String _description, double _amount) {
+    public Transaction(String _description, double _balance) {
         this._description = _description;
-        this._amount = _amount;
+        this._balance = _balance;
     }
 
 
@@ -32,11 +32,11 @@ public class Transaction {
         this._description = _description;
     }
 
-    public double get_amount() {
-        return _amount;
+    public double get_balance() {
+        return _balance;
     }
 
-    public void set_amount(double _amount) {
-        this._amount = _amount;
+    public void set_balance(double _balance) {
+        this._balance = _balance;
     }
 }
