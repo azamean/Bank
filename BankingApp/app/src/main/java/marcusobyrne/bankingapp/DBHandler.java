@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
+import android.widget.EditText;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -132,6 +133,38 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.update(TABLE_USER, values, COLUMN_ID + " = ?",
                 new String[]{String.valueOf(user.get_id())});
 
+    }
+
+    public boolean checkUser(String PIN) {
+
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = COLUMN_PIN + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {PIN};
+
+        Cursor cursor = db.query(TABLE_USER,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);                      
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
     }
 
 

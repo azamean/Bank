@@ -1,5 +1,6 @@
 package marcusobyrne.bankingapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +23,15 @@ public class Login extends AppCompatActivity {
 
     public void loginClicked(View view){
 
-        PIN = (EditText) findViewById(R.id.enteredPIN);
+        PIN = ((EditText) findViewById(R.id.enteredPIN));
         dbHandler = new DBHandler(this, null, null, 1);
+
+        if(dbHandler.checkUser(PIN.getText().toString())){
+            Intent loggedIn = new Intent(this, MainMenu.class);
+            startActivity(loggedIn);
+        }else{
+
+        }
 
 
     }
