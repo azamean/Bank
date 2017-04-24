@@ -3,6 +3,9 @@ The following is my submission for my final OOP project.
 
 # YouTube
 
+[![Video](http://img.youtube.com/vi/emeUn_x1jjA/0.jpg)](https://youtu.be/emeUn_x1jjA)
+
+
 ## Description
 * I created a mobile banking app, the app allows a user to create an account, login and manage their transactions.
 * I used Android Studio, using Java and SQLite.
