@@ -40,24 +40,21 @@ public class newTrans extends AppCompatActivity {
         dbHandler.saveTransaction(transaction);
         dbHandler.updateBalance(Double.valueOf(Amount.getText().toString()));
 
-        Intent transactionAdded = new Intent(this, MainMenu.class);
-        startActivity(transactionAdded);
 
-        /*
-            final Intent transactionAdded = new Intent(this, MainMenu.class);
+        final Intent transactionAdded = new Intent(this, MainMenu.class);
 
-            AlertDialog alertDialog = new AlertDialog.Builder(AddTransaction.this).create();
-            alertDialog.setTitle("Success");
-            alertDialog.setMessage("Transaction has been added successfully");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+        AlertDialog alertDialog = new AlertDialog.Builder(newTrans.this).create();
+        alertDialog.setTitle("Success");
+        alertDialog.setMessage("Transaction has been added successfully");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                             startActivity(transactionAdded);
                         }
                     });
-            alertDialog.show();
-*/
+        alertDialog.show();
+
 
     }
 }
